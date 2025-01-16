@@ -15,8 +15,11 @@
 }
 
 
-@layer utilities{
-  .tp{
-    @apply py-2 px-3 sm:px-6 sm:py-3
-  }
+#map {
+  position: relative;
+}
+
+.leaflet-mask-pane {
+  filter: blur(4px); 
+  opacity: 0.5;
 }
