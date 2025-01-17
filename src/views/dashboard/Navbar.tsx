@@ -27,7 +27,7 @@ const Navbar = () => {
                         style={{ width: 135 }}
                         className="custom-select"
                         onChange={handleChange}
-                        placeholder={'Русский'}
+                        defaultValue="russian"
                         prefix={<Internet/>}
                         bordered={false}
                     >

@@ -1,11 +1,10 @@
 import {Select} from "antd";
 import {Option} from "antd/lib/mentions";
 import CustomMap from "./MapContainer";
-// import MapComponent from "./MapUz.tsx";
-// import CustomMap from "./MapContainer.tsx";
 
+import { DatePicker } from 'antd';
 
-
+const { RangePicker } = DatePicker;
 const Menu = () => {
     return (
         <section className={''}>
@@ -15,30 +14,20 @@ const Menu = () => {
                     <Select
                         style={{ width: 200 }}
                         className="custom-select"
-placeholder={'Выбрать период'}
+                    defaultValue={'Выбрать_период'}
                     >
-                        <Option value="russian" >
+                        <Option value="Выбрать_период" >
                             Выбрать период
                         </Option>
-                        <Option value="ozbek">O'zbekcha</Option>
-                        <Option value="english">English</Option>
                     </Select>
-                    <Select
-                        style={{ width: 200 }}
-                        className="custom-select"
-placeholder={'02/06/2024 '}
-
-                    >
-                        <Option value="russian" >
-                            02/06/2024
-                        </Option>
-                        <Option value="ozbek">02/06/2024</Option>
-                        <Option value="english">02/06/2024</Option>
-                    </Select>
+                    <RangePicker
+                    bordered={true}
+                    defaultValue={[null, null]}
+                    className="border"
+                    />
                 </div>
             </div>
                     <div className={'mt-4 ml-5'}>
-{/*<MapComponent/>*/}
                        <CustomMap/>
                     </div>
         </section>
