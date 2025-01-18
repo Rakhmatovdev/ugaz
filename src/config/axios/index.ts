@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:7777/api',
+  baseURL: 'https://energoinspector.uz/api/v1/base/web',
   timeout: 10000,
   headers:{'Content-Type':'application/json'},
 });
@@ -17,8 +17,7 @@ apiClient.interceptors.request.use(
 );
 
 export const endpoints = {
-    uzbekistan_borders: '/data/uzbekistan-borders', //get
-  geoJson: '/data/geoJson/',  //get
+  geoJson: '/regions/',  //get
 };
 
 

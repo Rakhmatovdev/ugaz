@@ -3,8 +3,6 @@ import Internet from "../../../public/svg/Internet.tsx";
 import HeadPhone from "../../../public/svg/ HeadPhone.tsx";
 import Help from "../../../public/svg/Help.tsx";
 import ArrowDown from "../../../public/svg/ArrowDown.tsx";
-
-
 const { Option } = Select;
 
 const Navbar = () => {
@@ -29,7 +27,6 @@ const Navbar = () => {
                         onChange={handleChange}
                         defaultValue="russian"
                         prefix={<Internet/>}
-                        bordered={false}
                     >
                         <Option value="russian" >
                             Русский
