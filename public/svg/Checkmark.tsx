@@ -3,8 +3,8 @@ import { svgProps } from "../../src/utils/types";
 import {FC} from "react";
 
 const Checkmark: FC<svgProps> = ({
-                                           width = 24,
-                                           height = 24,
+                                           width = 20,
+                                           height = 20,
                                            viewBox = "0 0 24 24",
                                            onClick,
                                            className = "",
@@ -20,10 +20,11 @@ const Checkmark: FC<svgProps> = ({
             onClick={onClick}
             className={className}
             style={style}
+            fill="#3ABAAA"
         >
             <path
                 d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
-                stroke={strokeColor}
+                
                 strokeWidth="1.5"
             />
             <path

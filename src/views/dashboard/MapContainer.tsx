@@ -13,8 +13,6 @@ const {data,isPending,error} = useQuery({
     queryFn: uzbService.geo_json
 })
 
-
-
 const outputArray = useMemo(() => {
 
     return (
@@ -61,6 +59,7 @@ console.log(region_name);
             zoom={6}
             className='rounded-xl'
             style={{width: '100%', height: '600px'}}
+            scrollWheelZoom={false}
         >
             <Pane style={{zIndex: 500}} name={""}>
                 <TileLayer
