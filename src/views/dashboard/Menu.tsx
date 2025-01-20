@@ -5,6 +5,7 @@ import { DatePicker } from 'antd';
 import ChartHero from "./chart/ChartHero";
 import CardGaz from "./chart/CardGaz";
 import GasVolumeChart from "./chart/Diagramma";
+import Stations from "./chart/Stations";
 
 const { RangePicker } = DatePicker;
 const Menu = () => {
@@ -41,11 +42,12 @@ const Menu = () => {
                     />
                 </div>
             </div>
-                    <div className={'mt-4 ml-5'}>
+                    <div className={'mt-4 ml-5 relative'}>
                        <CustomMap/>
 <ChartHero/>
 <CardGaz/>
 <GasVolumeChart/>
+<Stations/>
                     </div>
         </section>
     );

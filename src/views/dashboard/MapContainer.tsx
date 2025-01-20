@@ -1,12 +1,13 @@
-import { MapContainer as LeafletMapContainer,GeoJSON, Pane, TileLayer,} from 'react-leaflet'; 
+import { MapContainer as LeafletMapContainer,GeoJSON, Pane, TileLayer, useMap, Marker, Popup,} from 'react-leaflet'; 
 import 'leaflet/dist/leaflet.css';
 import MaskLayer  from './MackLayer';
 import { useQuery } from '@tanstack/react-query';
 import uzbService from '../../services/uzb.service';
 import { useMemo } from 'react';
+import L from 'leaflet';
 
 const CustomMap = () => {
-    const center: [number, number] = [41.3775, 64.5853];
+    const center: [number, number] = [41.3775, 63.5853];
   
 const {data,isPending,error} = useQuery({
     queryKey: ["geoJson"],
@@ -33,7 +34,7 @@ const outputArray = useMemo(() => {
           } catch {
             region_name = JSON.parse(item.region_name);
           }
-console.log(region_name);
+console.log(item);
 
           return {
             type: "Feature",
@@ -41,8 +42,9 @@ console.log(region_name);
             properties: {
               region_id: item.region_id,
               region_name: region_name.kir,
-              district_id: item.district_id,
-              district_name: "uz", 
+              energy_saving_target: item.energy_saving_target,
+              gas_saving_target: item.gas_saving_target,
+              id: item.id, 
             },
             geometry,
           };
@@ -57,6 +59,7 @@ console.log(region_name);
         <LeafletMapContainer
             center={center}
             zoom={6}
+            zoomControl={false}
             className='rounded-xl'
             style={{width: '100%', height: '600px'}}
             scrollWheelZoom={false}
@@ -69,7 +72,7 @@ console.log(region_name);
             </Pane>
             
        <Pane name="geoJsonPane">
-        {outputArray.length > 0 && (
+        {outputArray.length > 0 && (<>
         <GeoJSON
           key={JSON.stringify(outputArray)}
           data={{
@@ -79,10 +82,10 @@ console.log(region_name);
           }}
           onEachFeature={(feature, layer) => {
             console.log(feature);
-            const digitizedCount = 4;  // Example data
-            const nonDigitizedCount = 20;  // Example data
-            const digitizedPercent = 15;  // Example data
-            const nonDigitizedPercent = 75;  // Example data
+            const digitizedCount = 4;  
+            const nonDigitizedCount = 20; 
+            const digitizedPercent = 15;  
+            const nonDigitizedPercent = 75; 
             
             layer.bindPopup(
               `<div style="
@@ -111,12 +114,38 @@ console.log(region_name);
         </div>
       </div>`,{className:"custom-popup"}
             );
-           
+
+      const map = useMap()
+
+layer.on("click", () => {
+                const bounds = layer.getBounds(); 
+                
+                map.flyToBounds(bounds, {
+                  padding: [5, 5],
+                  duration: 1.5,
+                });
+              });
             
           }}
-          
         />
-      )}
+        {outputArray.map((feature: any) => {
+              const bounds = L.geoJSON(feature).getBounds();
+              const center = bounds.getCenter();
+              return (
+                <Marker key={feature.id} position={center} >
+                  <Popup>
+                    <div>
+                      <strong>{feature.properties.region_name}</strong>
+                      <br />
+                      <span>Energy target: {feature.properties.energy_saving_target}</span>
+                      <br />
+                      <span>Gas target: {feature.properties.gas_saving_target}</span>
+                    </div>
+                  </Popup>
+                </Marker>
+              );
+            })}
+     </> )}
     
             </Pane>
         <MaskLayer />
