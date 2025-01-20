@@ -52,6 +52,7 @@ console.log(item);
     );
   }, [data?.data]);
 
+console.log(data?.data);
 
   if (isPending) return <p>Loading...</p>;
   if (error) return <p>Error loading data: something weng wrong</p>;
@@ -118,6 +119,7 @@ console.log(item);
       const map = useMap()
 
 layer.on("click", () => {
+  //@ts-ignore
                 const bounds = layer.getBounds(); 
                 
                 map.flyToBounds(bounds, {

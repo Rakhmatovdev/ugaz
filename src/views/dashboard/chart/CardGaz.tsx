@@ -1,8 +1,3 @@
-import HugeiconsMenu from "../../../../public/svg/HugeiconsMenu"
-import Wrench from "../../../../public/svg/Wrench"
-import Hugeicons from '../../../../public/svg/Hugeicons';
-import Hugeiconsc from '../../../../public/svg/Hugeiconsc';
-import AnalyticsIcon from '../../../../public/svg/Analytics';
 import Checkmark from '../../../../public/svg/Checkmark';
 
 const CardGaz = () => {
