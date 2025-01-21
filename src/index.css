@@ -38,3 +38,24 @@
   font-size: 16px;
   font-weight: bold;
 }
+.card {
+  background-color: white;
+  border: 1px solid #e5e7e7;
+  border-radius: 12px;
+  padding: 24px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+svg > g > g:nth-child(2) > g:nth-child(2) > g > g:nth-child(3) {
+  display: none;
+}
+
+.leaflet-div-icon {
+  width: max-content !important;
+  height: max-content !important;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 0 4px;
+  /* pointer-events: none !important; */
+}
