@@ -1,10 +1,9 @@
-import { MapContainer as LeafletMapContainer,GeoJSON, Pane, TileLayer, useMap, Marker, Popup,} from 'react-leaflet'; 
+import { MapContainer as LeafletMapContainer,GeoJSON, Pane, TileLayer, useMap} from 'react-leaflet'; 
 import 'leaflet/dist/leaflet.css';
 import MaskLayer  from './MackLayer';
 import { useQuery } from '@tanstack/react-query';
 import uzbService from '../../services/uzb.service';
 import { useMemo } from 'react';
-import L from 'leaflet';
 
 const CustomMap = () => {
     const center: [number, number] = [41.3775, 63.5853];
@@ -130,23 +129,7 @@ layer.on("click", () => {
             
           }}
         />
-        {outputArray.map((feature: any) => {
-              const bounds = L.geoJSON(feature).getBounds();
-              const center = bounds.getCenter();
-              return (
-                <Marker key={feature.id} position={center} >
-                  <Popup>
-                    <div>
-                      <strong>{feature.properties.region_name}</strong>
-                      <br />
-                      <span>Energy target: {feature.properties.energy_saving_target}</span>
-                      <br />
-                      <span>Gas target: {feature.properties.gas_saving_target}</span>
-                    </div>
-                  </Popup>
-                </Marker>
-              );
-            })}
+        
      </> )}
     
             </Pane>
