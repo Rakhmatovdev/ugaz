@@ -1,28 +1,27 @@
-import { MapContainer as LeafletMapContainer,GeoJSON, Pane, TileLayer, useMap} from 'react-leaflet'; 
+import { MapContainer as LeafletMapContainer,GeoJSON, Pane, TileLayer, useMap, Marker, Popup,} from 'react-leaflet'; 
 import 'leaflet/dist/leaflet.css';
 import MaskLayer  from './MackLayer';
 import { useQuery } from '@tanstack/react-query';
 import uzbService from '../../services/uzb.service';
 import { useMemo } from 'react';
+import L from 'leaflet';
 
 const CustomMap = () => {
-    const center: [number, number] = [41.3775, 63.5853];
-  
-const {data,isPending,error} = useQuery({
+  const center: [number, number] = [41.3775, 63.5853];
+
+  const { data, isPending, error } = useQuery({
     queryKey: ["geoJson"],
-    queryFn: uzbService.geo_json
-})
+    queryFn: uzbService.geo_json,
+  });
 
-const outputArray = useMemo(() => {
-
+  const outputArray = useMemo(() => {
     return (
       data?.data?.maps_list
-        ?.filter((val: any) => val.geometry) 
+        ?.filter((val: any) => val.geometry)
         .map((item: any) => {
           let geometry;
           let region_name;
-          console.log(item);
-          
+
           try {
             geometry = JSON.parse(item.geometry?.replaceAll("'", '"'));
           } catch {
@@ -33,7 +32,6 @@ const outputArray = useMemo(() => {
           } catch {
             region_name = JSON.parse(item.region_name);
           }
-console.log(item);
 
           return {
             type: "Feature",
@@ -43,7 +41,7 @@ console.log(item);
               region_name: region_name.kir,
               energy_saving_target: item.energy_saving_target,
               gas_saving_target: item.gas_saving_target,
-              id: item.id, 
+              id: item.id,
             },
             geometry,
           };
@@ -129,7 +127,23 @@ layer.on("click", () => {
             
           }}
         />
-        
+        {outputArray.map((feature: any) => {
+              const bounds = L.geoJSON(feature).getBounds();
+              const center = bounds.getCenter();
+              return (
+                <Marker key={feature.id} position={center} >
+                  <Popup>
+                    <div>
+                      <strong>{feature.properties.region_name}</strong>
+                      <br />
+                      <span>Energy target: {feature.properties.energy_saving_target}</span>
+                      <br />
+                      <span>Gas target: {feature.properties.gas_saving_target}</span>
+                    </div>
+                  </Popup>
+                </Marker>
+              );
+            })}
      </> )}
     
             </Pane>
@@ -139,4 +153,3 @@ layer.on("click", () => {
 };
 
 export default CustomMap;
-

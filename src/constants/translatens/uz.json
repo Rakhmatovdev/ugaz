@@ -1,0 +1,28 @@
+{
+    "translation": {
+      "historyTable": {
+        "History of bypasses": "O‘tkazib yuborish tarixi",
+        "Company name": "Kompaniya nomi",
+        "Last bypass": "Oxirgi raund",
+        "Category": "Kategoriya",
+        "Action": "Harakat",
+        "Read more": "Batafsil"
+      },
+      "detailsModal": {
+        "Organizational and technical measures": "Tashkiliy va texnik tadbirlar",
+        "OTM name": "OTM nomi",
+        "Power of installed solar panels": "O'rnatilgan quyosh panellarining quvvati",
+        "Volume of installed solar collectors": "O'rnatilgan quyosh kollektorlarining hajmi",
+        "Number of installed expansion joints": "O'rnatilgan kengaytma bo'g'inlari soni",
+        "Other OTMs for electricity": "Elektr energiyasi uchun boshqa OTMlar",
+        "Number of installed economic equipment": "O'rnatilgan iqtisodiy uskunalar soni",
+        "Other OTM for gas": "Gaz uchun boshqa OTMlar",
+        "Photo report": "Foto hisobot",
+        "Value": "Qiymat",
+        "Unit": "O'lchov birligi",
+        "kW": "kVt",
+        "l": "l",
+        "pcs": "don"
+      }
+    }
+  }

@@ -1,0 +1,29 @@
+{
+    "translation": {
+      "historyTable": {
+        "History of bypasses": "History of bypasses",
+        "Company name": "Company name",
+        "Last bypass": "The last round",
+        "Category": "Category",
+        "Action": "Action",
+        "Read more": "Read more"
+      },
+      "detailsModal": {
+        "Organizational and technical measures": "Organizational and technical measures",
+        "OTM name": "OTM name",
+        "Power of installed solar panels": "Power of installed solar panels",
+        "Volume of installed solar collectors": "Volume of installed solar collectors",
+        "Number of installed expansion joints": "Number of installed expansion joints",
+        "Other OTMs for electricity": "Other OTMs for electricity",
+        "Number of installed economic equipment": "Number of installed economic equipment",
+        "Other OTM for gas": "Other OTM for gas",
+        "Photo report": "Photo report",
+        "Value": "Value",
+        "Unit": "Unit",
+        "kW": "kW",
+        "l": "l",
+        "pcs": "pcs"
+      }
+  
+    }
+  }

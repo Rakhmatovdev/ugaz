@@ -1,0 +1,28 @@
+{
+    "translation": {
+      "historyTable": {
+        "History of bypasses": "История обходов",
+        "Company name": "Название компании",
+        "Last bypass": "Последний обход",
+        "Category": "Категория",
+        "Action": "Действие",
+        "Read more": "Подробнее"
+      },
+      "detailsModal": {
+        "Organizational and technical measures": "Организационно-технические мероприятия",
+        "OTM name": "Название ОТМ",
+        "Power of installed solar panels": "Мощность установленных солнечных панелей",
+        "Volume of installed solar collectors": "Объём установленных гелиоколлекторов",
+        "Number of installed expansion joints": "Количество установленных компенсаторов",
+        "Other OTMs for electricity": "Прочие ОТМ для электричества",
+        "Number of installed economic equipment": "Количество установленного экономического оборудования",
+        "Other OTM for gas": "Прочие ОТМ для газа",
+        "Photo report": "Фотоотчет",
+        "Value": "Значение",
+        "Unit": "Ед. изм.",
+        "kW": "кВт",
+        "l": "л",
+        "pcs": "шт"
+      }
+    }
+  }
