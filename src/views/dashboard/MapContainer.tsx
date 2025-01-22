@@ -193,6 +193,7 @@ const CustomMap = () => {
             key={JSON.stringify(outputArray)}
             data={{
               type: "FeatureCollection",
+              //@ts-ignore
               features: outputArray || [],
             }}
             onEachFeature={onEachFeature}

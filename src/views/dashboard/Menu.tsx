@@ -6,14 +6,16 @@ import ChartHero from "./chart/ChartHero";
 import CardGaz from "./chart/CardGaz";
 import GasVolumeChart from "./chart/Diagramma";
 import Stations from "./chart/Stations";
+import AllSum from "./map/AllSum";
+import FilterA from "./map/FilterA";
 
 const { RangePicker } = DatePicker;
 const Menu = () => {
     const today: Dayjs = dayjs();
   const tenDaysAgo: Dayjs = dayjs().subtract(10, 'days');
     return (
-        <section className={''}>
-            <div className={'mt-[24px] ml-5 flex items-center justify-between w-[92.5vw]'}>
+        <section className={'h-[93.5vh]  overflow-y-scroll scrollbar-hide w-[94vw] scroll-smooth '}>
+            <div className={'mt-[24px] ml-5 flex items-center justify-between  '}>
                 <p className={'text-2xl font-semibold'}>Дашбоард по Республике Узбекистан</p>
                 <div className={'flex gap-3'}>
                     <Select
@@ -48,6 +50,8 @@ const Menu = () => {
 <CardGaz/>
 <GasVolumeChart/>
 <Stations/>
+<AllSum/>
+<FilterA/>
                     </div>
         </section>
     );

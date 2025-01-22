@@ -3,7 +3,7 @@ import {svgProps} from "../../src/utils/types";
 const Note05: FC<svgProps> = ({
                                   width = 24,
                                   height = 24,
-                                  fillColor = "#141B34", // Default fill color
+                                  fillColor = "#69757A", // Default fill color
                                   style = {},
                                   onClick,
                                   className = "",

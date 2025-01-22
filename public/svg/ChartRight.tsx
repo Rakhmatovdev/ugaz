@@ -9,7 +9,7 @@ const ChartRight:FC<svgProps> = ({
                                             onClick,
                                             className = "",
                                             style = {},
-                                            strokeColor = "#141B34", // Default stroke color
+                                            strokeColor = "#69757A", // Default stroke color
                                         }) => {
     return (
         <svg

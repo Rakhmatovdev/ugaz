@@ -59,3 +59,11 @@ svg > g > g:nth-child(2) > g:nth-child(2) > g > g:nth-child(3) {
   padding: 0 4px;
   /* pointer-events: none !important; */
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
