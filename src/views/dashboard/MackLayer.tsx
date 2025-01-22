@@ -7,8 +7,8 @@ import UzbekistanBorders from "../../data/uzbekistan-borders.ts";
     options: {
         stroke: false,
         color: "#000",
-        fillOpacity: 0.2,
-        blur:0.2,
+        fillOpacity: 0.3,
+        blur:1,
         clickable: true,
         outerBounds: new L.LatLngBounds([-90, -360], [90, 360]),
     },

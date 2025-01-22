@@ -35,7 +35,7 @@ const Navbar = () => {
                         <Option value="english">English</Option>
                     </Select>
                    <div className={'flex gap-x-2 items-center'}><img src={'/public/svg/user.svg'} alt={'user'}  className={'rounded-full border-[#3ABAAA] border-2 w-[28px] h-[28px]'}/>
-                    <ArrowDown/></div>
+                    <ArrowDown  strokeColor="#171429"/></div>
             </div>
             </div>
         </div>

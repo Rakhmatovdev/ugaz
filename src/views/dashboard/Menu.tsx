@@ -5,9 +5,10 @@ import { DatePicker } from 'antd';
 import ChartHero from "./chart/ChartHero";
 import CardGaz from "./chart/CardGaz";
 import GasVolumeChart from "./chart/Diagramma";
-import Stations from "./chart/Stations";
+import Stations from "./map/Stations";
 import AllSum from "./map/AllSum";
 import FilterA from "./map/FilterA";
+import Alpha from "./map/Alpha";
 
 const { RangePicker } = DatePicker;
 const Menu = () => {
@@ -49,8 +50,16 @@ const Menu = () => {
 <ChartHero/>
 <CardGaz/>
 <GasVolumeChart/>
-<Stations/>
+
+{/*left */}
+{/* <Stations/> */}
+<Alpha/>
+
+
+{/*right */}
 <AllSum/>
+
+{/*bottom */}
 <FilterA/>
                     </div>
         </section>
