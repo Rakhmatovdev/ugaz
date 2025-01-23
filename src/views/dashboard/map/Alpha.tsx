@@ -2,6 +2,7 @@ import {  Collapse, CollapseProps } from "antd";
 import ArrowDown from "../../../../public/svg/ArrowDown";
 import Cancel from '../../../../public/svg/Cancel';
 import BarChart from "../chart/BarChart";
+import NavigationTabs from "./NavigationBar";
 
 const Alpha = () => {
   const stations = [
@@ -46,7 +47,7 @@ const Alpha = () => {
 
   return (
     <div>
-      <div className="w-[465px] h-[571px] overflow-y-scroll  rounded-2xl border absolute top-4 p-4  left-4 z-[550] bg-white">
+      <div className="w-[465px] h-[571px] overflow-y-scroll custom-scrollbar rounded-2xl border absolute top-4 p-4  left-4 z-[550] bg-white">
         <div className="flex items-start  justify-between ">
           <div className="flex gap-x-4">
         <img src={'/public/svg/logoa.svg'} width={60} height={60} alt={'logo'} />
@@ -62,35 +63,12 @@ const Alpha = () => {
             <Cancel width={20} height={20} strokeColor="#69757A"/>
           </button>
         </div>
-        <div>
-    
+       
     <button className="w-full bg-[#3ABAAA] text-white font-semibold py-[14px] text-sm  rounded-xl my-4">
     Посмотреть отчеты
     </button>
-
-
-    <div className=" flex flex-col space-y-3 ">
-        {Statistica.map((item) => ( <div className="flex border rounded-xl px-4 py-2 justify-between items-center" key={item.id}>
-     <p className="text-sm font-medium w-[180px]"> {item.name} </p>
-     <p className="text-[18px] font-semibold">{item.value} {item.id==1 && <>m<span className="align-super text-xs">3</span></>}</p>
-    </div>))}
-    </div>
-
-          <Collapse
-            items={items}
-            expandIcon={({ isActive }) => (
-              <ArrowDown  className="mt-2" style={{ transform: isActive ? "rotate(180deg)" : "rotate(0deg)" }}  strokeColor="#171429"/>
-            )}
-            expandIconPosition="end"
-            className="bg-white border  my-2 rounded-xl"
-            onChange={onChange}
-        collapsible="icon"
-          />
-
-
-<BarChart/>
-          
-     
+ <div>
+          <NavigationTabs/>
         </div>
       </div>
     </div>

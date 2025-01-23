@@ -60,6 +60,7 @@ const GasVolumeChart = () => {
     grid: {
       borderColor: "#E5E7EB", 
     },
+  
   };
 
   const series = [

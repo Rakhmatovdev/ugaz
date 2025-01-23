@@ -1,6 +1,6 @@
 import Chart from "react-apexcharts";
 
-const BarChart = () => {
+const BarChartK = () => {
   const chartOptions = {
     chart: {
       type: "bar",
@@ -31,7 +31,7 @@ const BarChart = () => {
     yaxis: {
       categories: ["0", "25", "50", "75"],
     },
-    colors: ["#30B18C", "#F15454", "#B2E5E3", "#FFD1CF"],
+    colors: ["#9747FF", "#FFA500"],
     legend: {
       position: "bottom",
       labels: {
@@ -47,28 +47,22 @@ const BarChart = () => {
 
   const chartSeries = [
     {
-      name: "Приход газа",
+      name: "Сопло №1",
       data: [50, 60, 70, 55, 50, 60, 70],
     },
     {
-      name: "Реализованный газ",
+      name: "Сопло №2",
       data: [40, 50, 65, 45, 40, 50, 65],
-    },
-    {
-      name: "Положительный дисбаланс",
-    },
-    {
-      name: "Отрицательный дисбаланс",
     },
   ];
 
   return (
     <div className="border rounded-xl">
-      <h3 className="px-4 pt-4 text-sm font-medium ">Объем прихода и реализованного газа</h3>
+      <h3 className="px-4 pt-4 text-sm font-medium ">Объем реализованного газа</h3>
       {/* @ts-ignore */}
       <Chart options={chartOptions} series={chartSeries} type="bar" height={331} />
     </div>
   );
 };
 
-export default BarChart;
+export default BarChartK;

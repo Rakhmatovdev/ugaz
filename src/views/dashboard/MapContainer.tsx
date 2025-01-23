@@ -137,8 +137,6 @@ const CustomMap = () => {
             </div>`,
           { className: "custom-popup" }
         );
-  
-      // Add click event to fly to bounds
       layer.on("click", () => {
         //@ts-ignore
         const bounds = layer.getBounds();
@@ -147,29 +145,14 @@ const CustomMap = () => {
           duration: 1.5,
         });
       });
-  
-      // Clean up the temporary container
       ReactDOM.unmountComponentAtNode(tempDiv);
       tempDiv.remove();
     },
-    [] // Dependencies (none in this case)
+    [] 
   );
 
-  // Loading or Error State
-  if (isPending) {
-    return (
-      <div className="absolute w-full h-full bg-[#FFF] flex items-center justify-center">
-        <TailSpin
-          visible={true}
-          height="80"
-          width="80"
-          color="#4fa94d"
-          ariaLabel="tail-spin-loading"
-          radius="1"
-        />
-      </div>
-    );
-  }
+
+
 
   if (error) return <p>Error loading data: something went wrong</p>;
 

@@ -64,6 +64,66 @@ svg > g > g:nth-child(2) > g:nth-child(2) > g > g:nth-child(3) {
 }
 
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;  
+}
+
+/* Scrollbar for modern browsers (Webkit-based) */
+.custom-scrollbar {
+  overflow-y: auto;
+  height: 100%; /* Adjust as per your container */
+  border-radius: 6px; /* Rounded thumb */
+  border: 2px solid #e5f3f7; /* Creates gap for track */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px; /* Scrollbar width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #e5f3f7
+  
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #90b6c4; 
+ 
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #90b6c4; /* Darker thumb on hover */
+  border-radius: 6px;
+  border: 2px solid #e5f3f7;
+}
+
+/* For Firefox (fallback styling) */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #aecedc transparent;
+  border-radius: 66px;
+
+}
+
+
+.custom-tabs .ant-tabs-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-tabs .ant-tabs-tab {
+  flex: 1; /* Make each tab take equal space */
+  text-align: center;
+}
+
+.custom-tabs .ant-tabs-tab-btn {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+}
+.custom-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #3ABAAA !important; /* Aktiv rangni o'zgartirish */
+  font-weight: bold; /* Qalinroq qilish */
+}
+.custom-tabs .ant-tabs-ink-bar {
+  background-color: #3ABAAA !important; /* Aktiv chiziq rangi */
 }
