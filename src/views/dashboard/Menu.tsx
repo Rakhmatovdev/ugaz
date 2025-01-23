@@ -5,7 +5,6 @@ import { DatePicker } from 'antd';
 import ChartHero from "./chart/ChartHero";
 import CardGaz from "./chart/CardGaz";
 import GasVolumeChart from "./chart/Diagramma";
-import Stations from "./map/Stations";
 import AllSum from "./map/AllSum";
 import FilterA from "./map/FilterA";
 import Alpha from "./map/Alpha";
