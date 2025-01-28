@@ -76,27 +76,27 @@ const CustomMap = () => {
       const nonDigitizedPercent = 100 - digitizedPercent;
   
       // Donut Chart React Component
-      const DonutChart = () => {
-        return (
-          <Chart
-            options={{
-              chart: {
-                type: "donut",
-              },
-              labels: ["Oцифровано", "He oцифровано"],
-              colors: ["#4fa94d", "#ff4d4d"],
-            }}
-            series={[digitizedPercent, nonDigitizedPercent]}
-            type="donut"
-            width="80"
-            height="80"
-          />
-        );
-      };
+      // const DonutChart = () => {
+      //   return (
+      //     <Chart
+      //       options={{
+      //         chart: {
+      //           type: "donut",
+      //         },
+      //         labels: ["Oцифровано", "He oцифровано"],
+      //         colors: ["#4fa94d", "#ff4d4d"],
+      //       }}
+      //       series={[digitizedPercent, nonDigitizedPercent]}
+      //       type="donut"
+      //       width="80"
+      //       height="80"
+      //     />
+      //   );
+      // };
   
       // Render the React chart to a temporary div
       const tempDiv = document.createElement("div");
-      ReactDOM.render(<DonutChart />, tempDiv);
+      // ReactDOM.render(<DonutChart />, tempDiv);
       const chartHtml = tempDiv.innerHTML;
   
       // Add marker with a custom icon
@@ -170,7 +170,7 @@ const CustomMap = () => {
       </Pane>
 
       <Pane name="geoJsonPane">
-        {outputArray.length > 0 && (
+        {outputArray && (
           <GeoJSON
             key={JSON.stringify(outputArray)}
             data={{

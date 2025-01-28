@@ -1,4 +1,5 @@
 import apiClient, { endpoints } from "../config/axios";
+import { TChart } from "../utils/types";
 
 export const uzbService = {
 
@@ -21,6 +22,20 @@ export const uzbService = {
             throw new Error("geoJson one failed. Please check your credentials and try again.");
         }
     },
+
+    get_chart: async (data:TChart) => {
+        try {
+            const response = await apiClient.get(`${endpoints.geoJson}/${data.id}/`);
+            return response;
+        } catch (error) {
+            console.error("geoJson one failed", error);
+            throw new Error("geoJson one failed. Please check your credentials and try again.");
+        }
+    },
+
+
+
+
 };
 
 export default uzbService;
