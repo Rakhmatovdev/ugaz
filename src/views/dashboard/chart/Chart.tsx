@@ -1,5 +1,5 @@
 import { ApexOptions } from 'apexcharts';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
 
@@ -29,6 +29,29 @@ const ApexChart = () => {
       labels: ['A', 'B', 'C', 'D', 'E'], 
     },
   });
+
+  useEffect(()=>{
+    setState({
+      series: [44, 55, 41, 17, 15],
+      options: {
+        chart: {
+          type: 'donut', 
+        },
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200 
+            },
+            legend: {
+              position: 'bottom' 
+            }
+          }
+        }],
+        labels: ['A', 'B', 'C', 'D', 'E'], 
+      },
+    })
+  },[])
 
   return (
     <div>
