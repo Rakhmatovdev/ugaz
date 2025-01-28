@@ -3,7 +3,9 @@ import Internet from "../../../public/svg/Internet.tsx";
 import HeadPhone from "../../../public/svg/ HeadPhone.tsx";
 import Help from "../../../public/svg/Help.tsx";
 import ArrowDown from "../../../public/svg/ArrowDown.tsx";
+import logo from "../../../public/logo.svg";
 const { Option } = Select;
+import user from "../../../public/svg/user.svg";
 
 const Navbar = () => {
     const handleChange = (value: string) => {
@@ -14,7 +16,7 @@ const Navbar = () => {
         <div>
             <div className={'flex px-4 justify-between py-[10px] items-center  border-b'}>
                 <div className="flex gap-x-2 items-center">
-                    <img src={'/public/logo.svg'} alt={'logo'} />
+                    <img src={logo} alt={'logo'} />
                     <p className="logo">uGaz</p>
                 </div>
                 <div className="flex items-center gap-x-6">
@@ -34,7 +36,7 @@ const Navbar = () => {
                         <Option value="ozbek">O'zbekcha</Option>
                         <Option value="english">English</Option>
                     </Select>
-                   <div className={'flex gap-x-2 items-center'}><img src={'/public/svg/user.svg'} alt={'user'}  className={'rounded-full border-[#3ABAAA] border-2 w-[28px] h-[28px]'}/>
+                   <div className={'flex gap-x-2 items-center'}><img src={user} alt={'user'}  className={'rounded-full border-[#3ABAAA] border-2 w-[28px] h-[28px]'}/>
                     <ArrowDown  strokeColor="#171429"/></div>
             </div>
             </div>

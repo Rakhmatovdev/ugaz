@@ -1,5 +1,6 @@
 import Cancel from '../../../../public/svg/Cancel';
 import NavigationTabs from "./NavigationBar";
+import logoa from '../../../../public/svg/logoa.svg';
 
 const Alpha = () => {
   return (
@@ -7,7 +8,7 @@ const Alpha = () => {
       <div className="w-[465px] h-[571px] overflow-y-scroll custom-scrollbar rounded-2xl border absolute top-4 p-4  left-4 z-[550] bg-white">
         <div className="flex items-start  justify-between ">
           <div className="flex gap-x-4">
-        <img src={'/public/svg/logoa.svg'} width={60} height={60} alt={'logo'} />
+        <img src={logoa} width={60} height={60} alt={'logo'} />
         <div className="flex flex-col justify-between">
             <p className="font-semibold text-xl ">Alpha Gas</p>
             <div className="flex gap-2">
