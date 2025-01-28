@@ -10,8 +10,7 @@ import {
   Pane,
   TileLayer,
   useMap,
-} from "react-leaflet";
-import { TailSpin } from "react-loader-spinner";
+} from "react-leaflet"
 import uzbService from "../../services/uzb.service";
 import MaskLayer from "./MackLayer";
 
@@ -23,7 +22,7 @@ const ResizeMap = () => {
 const CustomMap = () => {
   const center: [number, number] = [41.3775, 63.5853];
 
-  const { data, isPending, error } = useQuery({
+  const { data, error } = useQuery({
     queryKey: ["geoJson"],
     queryFn: uzbService.geo_json,
   });

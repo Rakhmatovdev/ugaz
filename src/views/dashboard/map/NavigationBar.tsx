@@ -30,7 +30,7 @@ const NavigationTabs: React.FC = () => {
     { name: "Кол-во заправленных машин", value: "950 шт.", id: 3 },
   ];
 
-  const totalStations = stations.reduce((sum, station) => sum + station.value, 0);
+  // const totalStations = stations.reduce((sum, station) => sum + station.value, 0);
 
   const onChange = (key: string | string[]) => {
     console.log(key);
