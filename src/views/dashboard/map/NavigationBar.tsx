@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { Tabs, Collapse, CollapseProps } from "antd";
+import { Tabs, Collapse, CollapseProps, theme } from "antd";
 import ArrowDown from "../../../../public/svg/ArrowDown";
 import BarChart from "../chart/BarChart";
 import HugeiconsFuel from '../../../../public/svg/HugeiconsFuel';
@@ -8,7 +8,7 @@ import BarChartK from "../chart/BarChartK";
 const { TabPane } = Tabs;
 
 const NavigationTabs: React.FC = () => {
-
+  const { token } = theme.useToken();
 
   const stations = [
     { name: "Тип топлива", value: 100, id: 1 },
@@ -16,6 +16,14 @@ const NavigationTabs: React.FC = () => {
     { name: "Давление", value: 12, id: 3 },
   ];
 
+  const panelStyle: React.CSSProperties = {
+    marginBottom: 24,
+    background: '#F8FAFB',
+    borderRadius: token.borderRadiusLG,
+    border: '1px solid #E5E5E5',
+
+  };
+  
   const Statistica = [
     { name: "Объем реализованного газа", value: "2 100,3", id: 1 },
     { name: "Общая сумма расхода за газ на заправке", value: "100,3 млрд.сум", id: 2 },
@@ -55,7 +63,7 @@ const NavigationTabs: React.FC = () => {
       ),
     },
   ];
-  const myitems: CollapseProps['items'] = [
+  const myitems: (panelStyle: CSSProperties) => CollapseProps['items'] = (panelStyle) => [
     {
         key: "1",
         label: (
@@ -71,9 +79,10 @@ const NavigationTabs: React.FC = () => {
            </div>
           </div>
         ),
+        style:panelStyle,
         children: (
-          <div>
-          <div className="flex flex-col space-y-3">
+          <>
+          <div className="flex flex-col space-y-3 ">
             {Statistica.map((item) => (
               <div
                 className="flex border rounded-xl px-4 py-2 justify-between items-center"
@@ -91,7 +100,9 @@ const NavigationTabs: React.FC = () => {
               </div>
             ))}
           </div>
-  
+         
+         <hr />
+
           <Collapse
             items={items}
             expandIcon={({ isActive }) => (
@@ -109,7 +120,7 @@ const NavigationTabs: React.FC = () => {
             collapsible="icon"
           />
           <BarChartK />
-        </div>
+        </>
         ),
       },
     {
@@ -127,6 +138,7 @@ const NavigationTabs: React.FC = () => {
          </div>
         </div>
       ),
+      style:panelStyle,
       children: (
         <div>
         <div className="flex flex-col space-y-3">
@@ -183,6 +195,7 @@ const NavigationTabs: React.FC = () => {
            </div>
           </div>
         ),
+        style:panelStyle,
         children: (
           <div>
           <div className="flex flex-col space-y-3">
@@ -239,6 +252,7 @@ const NavigationTabs: React.FC = () => {
          </div>
         </div>
      </> ),
+     style:panelStyle,
       children: (
         <div>
         <div className="flex flex-col space-y-3">
@@ -280,10 +294,8 @@ const NavigationTabs: React.FC = () => {
       </div>
       ),
     },
-  ];
-
- 
-
+  ]; 
+  
   return (
     <Tabs
       defaultActiveKey="1"
@@ -355,7 +367,8 @@ const NavigationTabs: React.FC = () => {
       >
         <div>
         <Collapse
-        items={myitems}
+        items={myitems(panelStyle)}
+        style={{ background: token.colorBgContainer }}
         expandIcon={({ isActive }) => (
           <ArrowDown
             className="mt-4"
@@ -366,9 +379,8 @@ const NavigationTabs: React.FC = () => {
           />
         )}
         expandIconPosition="end"
-        className="my-4 bg-[#F8FAFB] border rounded-xl"
+        className="my-4  bg-[#F8FAFB]"
         onChange={onChange}
-      
       />
 
         </div>
