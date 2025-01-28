@@ -29,8 +29,8 @@ export const uzbService = {
             const response = await axios.get<TChart>(`http://api.my-agnks-dev.xdevs.uz/api/v1/admin-statistics/stations/gas-statistics/receive_sold_gas/`,{data});
             return response;
         } catch (error) {
-            console.error("geoJson one failed", error);
-            throw new Error("geoJson one failed. Please check your credentials and try again.");
+            console.error("get chart failed", error);
+            throw new Error("get chart failed. Please check your credentials and try again.");
         }
     },
 
