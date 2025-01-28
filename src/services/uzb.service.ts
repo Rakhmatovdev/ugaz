@@ -1,3 +1,4 @@
+import axios from "axios";
 import apiClient, { endpoints } from "../config/axios";
 import { TChart } from "../utils/types";
 
@@ -25,7 +26,7 @@ export const uzbService = {
 
     get_chart: async (data:TChart) => {
         try {
-            const response = await apiClient.get(`${endpoints.geoJson}/${data.id}/`);
+            const response = await axios.get<TChart>(`http://api.my-agnks-dev.xdevs.uz/api/v1/admin-statistics/stations/gas-statistics/receive_sold_gas/`,{data});
             return response;
         } catch (error) {
             console.error("geoJson one failed", error);

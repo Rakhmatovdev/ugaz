@@ -10,11 +10,11 @@ const ChartHero: React.FC = () => {
    mutationFn: uzbService.get_chart,   
   })
 useEffect(()=>{
-const data={id:"1",start_date:"2024-01-01",end_date:"2024-01-31"}
+const data={start_date:"2024-01-01",end_date:"2024-01-31"}
   mutate(data)
 },[])
 
-console.log(data?.data.map_list);
+console.log(data);
 
 
   const chartData1 = {
