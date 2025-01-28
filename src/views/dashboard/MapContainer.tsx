@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useCallback, useMemo } from "react";
-import Chart from "react-apexcharts";
+// import Chart from "react-apexcharts";
 import ReactDOM from "react-dom";
 import {
   GeoJSON,
