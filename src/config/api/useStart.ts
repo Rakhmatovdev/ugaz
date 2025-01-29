@@ -16,7 +16,6 @@ const reportsService = {
       ...(region && { region }),
       ...(district && { district }),
     }).toString();
-
     return axiosCli.get(`/v1/stats/reports/get_stats/?${queryString}`);
   },
 };

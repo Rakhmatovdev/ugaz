@@ -16,7 +16,10 @@ export interface svgProps {
 }
 
 export type TChart={
-    start_date:string
-    end_date:string
+    start_date:string | Date
+    end_date:string | Date
     region_code?:string
+    status:number| string
+    period:string
+    all:boolean
 }

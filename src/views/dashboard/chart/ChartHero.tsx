@@ -1,21 +1,15 @@
-import { useMutation} from '@tanstack/react-query';
-import React, { useEffect } from 'react';
+
 import ReactApexChart from 'react-apexcharts';
 import uzbService from '../../../services/uzb.service';
+import { useQuery } from '@tanstack/react-query';
 
 const ChartHero: React.FC = () => {
 
-  const {data,mutate}=useMutation({
-   mutationKey: ['chart hero'],
-   mutationFn: uzbService.get_chart,   
+  const {data}=useQuery({
+  queryKey: ['sold gas'],
+  queryFn: uzbService.sold_gas,   
   })
-useEffect(()=>{
-const data={start_date:"2024-01-01",end_date:"2024-01-31"}
-  mutate(data)
-},[])
-
 console.log(data);
-
 
   const chartData1 = {
     series: [78, 12, 30],

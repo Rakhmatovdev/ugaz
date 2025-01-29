@@ -5,8 +5,8 @@ const CardGaz = () => {
 
     const gazData = [
         {id:1,name:"Приход газа ",value:"1 239",badge:"suceess",color:'black'},
-        {id:1,name:"Реализованный газ",value:"939",color:'black'},
-        {id:1,name:"Дисбаланс",value:"300",color:'#3ABAAA'},
+        {id:2,name:"Реализованный газ",value:"939",color:'black'},
+        {id:3,name:"Дисбаланс",value:"300",color:'#3ABAAA'},
     ]
 
   return (

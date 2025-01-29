@@ -1,9 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useCallback, useMemo } from "react";
-// import Chart from "react-apexcharts";
-import ReactDOM from "react-dom";
+import { useCallback, useEffect, useMemo } from "react";
 import {
   GeoJSON,
   MapContainer as LeafletMapContainer,
@@ -15,8 +13,12 @@ import uzbService from "../../services/uzb.service";
 import MaskLayer from "./MackLayer";
 
 const ResizeMap = () => {
-  const map: any = useMap();
-  map._onResize();
+  const map = useMap();
+
+  useEffect(() => {
+    map.invalidateSize();
+  }, [map]); 
+
   return null;
 };
 const CustomMap = () => {
@@ -144,8 +146,8 @@ const CustomMap = () => {
           duration: 1.5,
         });
       });
-      ReactDOM.unmountComponentAtNode(tempDiv);
-      tempDiv.remove();
+      // ReactDOM.unmountComponentAtNode(tempDiv);
+      // tempDiv.remove();
     },
     [] 
   );

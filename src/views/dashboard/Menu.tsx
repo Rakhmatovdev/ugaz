@@ -8,11 +8,39 @@ import GasVolumeChart from "./chart/Diagramma";
 import AllSum from "./map/AllSum";
 import FilterA from "./map/FilterA";
 import Alpha from "./map/Alpha";
+import { useQuery } from "@tanstack/react-query";
+import uzbService from "../../services/uzb.service";
 
 const { RangePicker } = DatePicker;
 const Menu = () => {
     const today: Dayjs = dayjs();
   const tenDaysAgo: Dayjs = dayjs().subtract(10, 'days');
+
+
+const {data:station_detail}=useQuery({
+    queryKey:['station detail'],
+    queryFn:uzbService.station_detail,
+})
+const {data: dispensers_detail}=useQuery({
+    queryKey:['dispensers detail'],
+    queryFn:uzbService.dispensers_detail,
+})
+const {data:cars_statics}=useQuery({
+    queryKey:['cars statics'],
+    queryFn:uzbService.cars_statics,
+})
+const {data:dispensers_list}=useQuery({
+    queryKey:['dispensers list'],
+    queryFn:uzbService.dispensers_list,
+})
+
+console.log("station detail",station_detail);
+console.log("dispensers detail", dispensers_detail);
+console.log("cars_statics",cars_statics);
+console.log("dispensers_list",dispensers_list);
+
+
+
     return (
         <section className={'h-[93.5vh]  overflow-y-scroll scrollbar-hide w-[94vw] scroll-smooth '}>
             <div className={'mt-[24px] ml-5 flex items-center justify-between  '}>
