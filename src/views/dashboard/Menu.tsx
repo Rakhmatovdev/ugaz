@@ -7,14 +7,30 @@ import CardGaz from "./chart/CardGaz";
 import GasVolumeChart from "./chart/Diagramma";
 import AllSum from "./map/AllSum";
 import FilterA from "./map/FilterA";
-import Alpha from "./map/Alpha";
+// import Alpha from "./map/Alpha";
 import { useQuery } from "@tanstack/react-query";
 import uzbService from "../../services/uzb.service";
+import Stations from "./map/Stations";
 
 const { RangePicker } = DatePicker;
 const Menu = () => {
     const today: Dayjs = dayjs();
   const tenDaysAgo: Dayjs = dayjs().subtract(10, 'days');
+
+
+const {data:regions}=useQuery({
+    queryKey:['regions'],
+    queryFn:uzbService.regions,
+})
+
+
+const {data:contract_statistic_by_region}=useQuery({
+    queryKey:['contract statistic by region'],
+    queryFn: uzbService.contract_statistic_by_region,
+})
+
+
+
 
 
 const {data:station_detail}=useQuery({
@@ -25,19 +41,18 @@ const {data: dispensers_detail}=useQuery({
     queryKey:['dispensers detail'],
     queryFn:uzbService.dispensers_detail,
 })
-const {data:cars_statics}=useQuery({
-    queryKey:['cars statics'],
-    queryFn:uzbService.cars_statics,
-})
-const {data:dispensers_list}=useQuery({
-    queryKey:['dispensers list'],
-    queryFn:uzbService.dispensers_list,
-})
+// const {data:dispensers_list}=useQuery({
+//     queryKey:['dispensers list'],
+//     queryFn:uzbService.dispensers_list,
+// })
+
+console.log("regions",regions);
+
+console.log("contract_statistic_by_region",contract_statistic_by_region);
 
 console.log("station detail",station_detail);
 console.log("dispensers detail", dispensers_detail);
-console.log("cars_statics",cars_statics);
-console.log("dispensers_list",dispensers_list);
+// console.log("dispensers_list",dispensers_list);
 
 
 
@@ -79,8 +94,8 @@ console.log("dispensers_list",dispensers_list);
 <GasVolumeChart/>
 
 {/*left */}
-{/* <Stations/> */}
-<Alpha/>
+<Stations/>
+{/* <Alpha/> */}
 
 
 {/*right */}

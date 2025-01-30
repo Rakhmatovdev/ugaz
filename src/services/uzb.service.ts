@@ -23,16 +23,73 @@ export const uzbService = {
         }
     },
 
-    sold_gas: async () => {
-        const gas={start_date:"2025-01-01T00:00:00",end_date:"2025-01-29T10:25:49",status:1,period:'month',all:true}
+    regions: async () => {
         try {
-            const response = await allService.get<TChart>(points.sold_gas,{params:gas});
+            const response = await allService.get(points.regions);
+            return response?.data;
+        } catch (error) {
+            console.error("regions failed", error);
+            throw new Error("regions failed. Please check your credentials and try again.");
+        }
+    },
+
+    sold_gas: async () => {
+        const gas={start_date:"2025-01-01T00:00:00",end_date:'2025-01-29T00:00:00',status:1,period:'month',all:true}
+        try {
+            const response = await allService.get(points.sold_gas,{params:gas});
             return response?.data;
         } catch (error) {
             console.error("get chart failed", error);
             throw new Error("get chart failed. Please check your credentials and try again.");
         }
     },
+    
+    
+        cars_statics: async () => {
+            const gas={start_date:"2025-01-01T00:00:00",end_date:'2025-01-29T00:00:00',status:1}
+            try {
+                const response = await allService.get(points.cars_statics,{params:gas});
+                return response?.data;
+            } catch (error) {
+                console.error("cars statics failed", error);
+                throw new Error("cars statics failed. Please check your credentials and try again.");
+            }
+        },
+
+    stations_by_region: async () => {
+        const gas={start_date:"2025-01-01T00:00:00",end_date:'2025-01-29T00:00:00',is_digitalized:1,region_code:"",station_type_key:'agnkc'}
+        try {
+            const response = await allService.get(points.stations_by_region,{params:gas});
+            return response?.data;
+        } catch (error) {
+            console.error("stations by region failed", error);
+            throw new Error("stations by region failed. Please check your credentials and try again.");
+        }
+    },
+
+    contract_statistic_by_region: async () => {
+        const gas={date:"2025-01",date_type: "month"}
+        try {
+            const response = await allService.get(points.contract_statistic_by_region,{params:gas});
+            return response?.data;
+        } catch (error) {
+            console.error("statistic by region failed", error);
+            throw new Error("statistic by region failed. Please check your credentials and try again.");
+    }
+    },
+
+    transaction_statistic: async (region_code?:string) => {
+        const gas={date:"2025-01",region_code:region_code?region_code:"",date_type: "month"}
+        try {
+            const response = await allService.get(points.transaction_statistic,{params:gas});
+            return response?.data;
+        } catch (error) {
+            console.error("transaction statistic failed", error);
+            throw new Error("transaction statistic failed. Please check your credentials and try again.");
+        }
+    },
+
+
 
     station_detail: async () => {
         try {
@@ -51,16 +108,6 @@ export const uzbService = {
         } catch (error) {
             console.error("dispensers detail failed", error);
             throw new Error("dispensers detail failed. Please check your credentials and try again.");
-        }
-    },
-
-    cars_statics: async () => {
-        try {
-            const response = await allService.get(points.cars_statics);
-            return response?.data;
-        } catch (error) {
-            console.error("cars statics failed", error);
-            throw new Error("cars statics failed. Please check your credentials and try again.");
         }
     },
 

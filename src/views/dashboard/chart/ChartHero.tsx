@@ -1,15 +1,6 @@
-
 import ReactApexChart from 'react-apexcharts';
-import uzbService from '../../../services/uzb.service';
-import { useQuery } from '@tanstack/react-query';
 
 const ChartHero: React.FC = () => {
-
-  const {data}=useQuery({
-  queryKey: ['sold gas'],
-  queryFn: uzbService.sold_gas,   
-  })
-console.log(data);
 
   const chartData1 = {
     series: [78, 12, 30],

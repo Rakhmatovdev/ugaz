@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useCallback, useEffect, useMemo } from "react";
@@ -11,6 +11,7 @@ import {
 } from "react-leaflet"
 import uzbService from "../../services/uzb.service";
 import MaskLayer from "./MackLayer";
+import { useReverse } from "../../config/hooks/useReverse";
 
 const ResizeMap = () => {
   const map = useMap();
@@ -28,6 +29,15 @@ const CustomMap = () => {
     queryKey: ["geoJson"],
     queryFn: uzbService.geo_json,
   });
+
+
+  const {data: transaction_statistic,mutate}=useMutation({
+    mutationKey:['transaction statistic'],
+   mutationFn:uzbService.transaction_statistic,
+})
+
+console.log("transaction_statistic",transaction_statistic); 
+
 
   const outputArray = useMemo(() => {
     return (
@@ -52,7 +62,7 @@ const CustomMap = () => {
             type: "Feature",
             id: item.region_id,
             properties: {
-              region_id: item.region_id,
+              region_id: useReverse(item.region_id),
               region_name: region_name.kir,
               energy_saving_target: item.energy_saving_target,
               gas_saving_target: item.gas_saving_target,
@@ -140,6 +150,9 @@ const CustomMap = () => {
         );
       layer.on("click", () => {
         //@ts-ignore
+        console.log("layer", layer);
+        console.log("feature", feature);
+        
         const bounds = layer.getBounds();
         map.flyToBounds(bounds, {
           padding: [5, 5],
