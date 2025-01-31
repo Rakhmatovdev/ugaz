@@ -132,14 +132,14 @@ console.log(contract_data);
 
   const onEachFeature = useCallback(
     (feature: any, layer: any) => {
-      const bounds = layer.getBounds().getCenter(); // Get center for the marker
+      // const bounds = layer.getBounds().getCenter(); // Get center for the marker
       const map = useMap(); // Access the map instance
   
       // Example data for chart and popup
-      const digitizedCount = contract_data?.billing_data.taxed || 26;
-      const nonDigitizedCount = contract_data?.billing_data.not_taxed || 74;
-      const digitizedPercent = Math.round((digitizedCount / (digitizedCount + nonDigitizedCount)) * 100);
-      const nonDigitizedPercent = 100 - digitizedPercent;
+      // const digitizedCount = contract_data?.billing_data.taxed || 26;
+      // const nonDigitizedCount = contract_data?.billing_data.not_taxed || 74;
+      // const digitizedPercent = Math.round((digitizedCount / (digitizedCount + nonDigitizedCount)) * 100);
+      // const nonDigitizedPercent = 100 - digitizedPercent;
   
       // Donut Chart React Component
       // const DonutChart = () => {
@@ -160,9 +160,9 @@ console.log(contract_data);
       //   );
       // };
 
-      const tempDiv = document.createElement("div");
+      // const tempDiv = document.createElement("div");
       // ReactDOM.render(<DonutChart />, tempDiv);
-      const chartHtml = tempDiv.innerHTML;
+      // const chartHtml = tempDiv.innerHTML;
 
       // L.marker(bounds, {
       //   icon: L.divIcon({
