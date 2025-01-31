@@ -17,12 +17,12 @@ interface Link{
 const Sidebar = () => {
     const myLinks:Link[]=[
         {icon: <HugeiconsMenu/>, path: "/menu",id:1},
-        {icon: <ChartRight/>, path: "/chart",id:2},
-        {icon: <Note05/>, path: "/note",id:3},
-        {icon: <FuelStation/>, path: "/fuel",id:4},
-        {icon: <Speed/>, path: "/speed",id:5},
-        {icon: <HugeiconsProfil/>, path: "/profile",id:6},
-        {icon: <Wrench/>, path: "/settings",id:7},
+        {icon: <ChartRight/>, path: "#",id:2},
+        {icon: <Note05/>, path: "#",id:3},
+        {icon: <FuelStation/>, path: "#",id:4},
+        {icon: <Speed/>, path: "#",id:5},
+        {icon: <HugeiconsProfil/>, path: "#",id:6},
+        {icon: <Wrench/>, path: "#",id:7},
     ]
 
     return (
