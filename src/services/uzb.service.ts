@@ -1,5 +1,5 @@
 import apiClient, { allService, endpoints, points } from "../config/axios";
-import { TChart } from "../utils/types";
+
 
 export const uzbService = {
 
@@ -13,10 +13,16 @@ export const uzbService = {
         }
     },
 
-    geo_jsonOne: async ({id}:{id:string}) => {
+
+    geo_jsonOne: async (id?:string) => {
         try {
-            const response = await apiClient.get(`${endpoints.geoJson}/${id}/`);
+if(!id) {
+    const response = await apiClient.get(endpoints.geoJson);
+    return response;
+} else{
+       const response = await apiClient.get(`${endpoints.geoJson}/${id}/`);
             return response;
+}
         } catch (error) {
             console.error("geoJson one failed", error);
             throw new Error("geoJson one failed. Please check your credentials and try again.");
@@ -66,18 +72,7 @@ export const uzbService = {
             throw new Error("stations by region failed. Please check your credentials and try again.");
         }
     },
-
-    contract_statistic_by_region: async () => {
-        const gas={date:"2025-01",date_type: "month"}
-        try {
-            const response = await allService.get(points.contract_statistic_by_region,{params:gas});
-            return response?.data;
-        } catch (error) {
-            console.error("statistic by region failed", error);
-            throw new Error("statistic by region failed. Please check your credentials and try again.");
-    }
-    },
-
+    
     transaction_statistic: async (region_code?:string) => {
         const gas={date:"2025-01",region_code:region_code?region_code:"",date_type: "month"}
         try {
@@ -88,6 +83,34 @@ export const uzbService = {
             throw new Error("transaction statistic failed. Please check your credentials and try again.");
         }
     },
+
+    fuel_dispensers: async () => {
+        try {
+            const response = await allService.get(points.fuel_dispensers);
+            return response?.data;
+        } catch (error) {
+            console.error("fuel dispensers failed", error);
+            throw new Error("fuel dispensers failed. Please check your credentials and try again.");
+        }
+    },
+
+
+
+
+
+
+
+
+        contract_statistic_by_region: async () => {
+            const gas={date:"2025-01",date_type: "month"}
+            try {
+                const response = await allService.get(points.contract_statistic_by_region,{params:gas});
+                return response?.data;
+            } catch (error) {
+                console.error("statistic by region failed", error);
+                throw new Error("statistic by region failed. Please check your credentials and try again.");
+        }
+        },
 
 
 

@@ -16,7 +16,6 @@ function formater(number:number) {
       return new Intl.NumberFormat('ru-RU').format(Math.round(number)) + ' (м³)';
   }
 }
-console.log();
 
 
 

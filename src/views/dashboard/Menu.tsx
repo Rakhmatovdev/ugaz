@@ -17,42 +17,16 @@ const Menu = () => {
     const today: Dayjs = dayjs();
   const tenDaysAgo: Dayjs = dayjs().subtract(10, 'days');
 
-
-const {data:regions}=useQuery({
-    queryKey:['regions'],
-    queryFn:uzbService.regions,
-})
-
-
-const {data:contract_statistic_by_region}=useQuery({
-    queryKey:['contract statistic by region'],
-    queryFn: uzbService.contract_statistic_by_region,
-})
-
-
-
-
-
-const {data:station_detail}=useQuery({
-    queryKey:['station detail'],
-    queryFn:uzbService.station_detail,
-})
-const {data: dispensers_detail}=useQuery({
-    queryKey:['dispensers detail'],
-    queryFn:uzbService.dispensers_detail,
-})
-// const {data:dispensers_list}=useQuery({
-//     queryKey:['dispensers list'],
-//     queryFn:uzbService.dispensers_list,
+// const {data:station_detail}=useQuery({
+//     queryKey:['station detail'],
+//     queryFn:uzbService.station_detail,
 // })
-
-console.log("regions",regions);
-
-console.log("contract_statistic_by_region",contract_statistic_by_region);
-
-console.log("station detail",station_detail);
-console.log("dispensers detail", dispensers_detail);
-// console.log("dispensers_list",dispensers_list);
+// const {data: dispensers_detail}=useQuery({
+//     queryKey:['dispensers detail'],
+//     queryFn:uzbService.dispensers_detail,
+// })
+// console.log("station detail",station_detail);
+// console.log("dispensers detail", dispensers_detail);
 
 
 

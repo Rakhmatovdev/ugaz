@@ -3,7 +3,7 @@ import { Select } from "antd";
 import ReactApexChart from "react-apexcharts";
 import uzbService from "../../../services/uzb.service";
 import { useEffect, useState } from "react";
-import { format } from 'date-fns';
+import { format } from "date-fns";
 
 const GasVolumeChart = () => {
   const { data } = useQuery({
@@ -11,16 +11,23 @@ const GasVolumeChart = () => {
     queryFn: uzbService.sold_gas,
   });
 
-  const [formattedData, setFormattedData] = useState([]);
+  const [formattedData, setFormattedData] = useState<{ date: string; station_total: number; receive_total: number }[]>([]);
 
   useEffect(() => {
-    if (data) {
-      const processedData = data?.gas.map((item:any) => ({
-        date: new Date(item.date).toLocaleDateString("en-US", { month: "2-digit", day: "2-digit" }),
+    if (data && data.gas?.length) {
+      const processedData = data.gas.map((item: any) => ({
+        date: format(new Date(item.date), "MM/dd"),
         station_total: Math.floor(item.station_total),
         receive_total: Math.floor(item.receive_total),
       }));
       setFormattedData(processedData);
+    } else {
+      const emptyData = Array.from({ length: 31 }, (_, i) => ({
+        date: format(new Date(Date.now() - (30 - i) * 24 * 60 * 60 * 1000), "MM/dd"),
+        station_total: 0,
+        receive_total: 0,
+      }));
+      setFormattedData(emptyData);
     }
   }, [data]);
 
@@ -34,7 +41,7 @@ const GasVolumeChart = () => {
       gradient: { shadeIntensity: 1, opacityFrom: 0.4, opacityTo: 0.2, stops: [0, 90, 100] },
     },
     xaxis: {
-      categories: formattedData?.map((item:any) => format(item?.date,'MM/dd')),
+      categories: formattedData.map((item) => item.date),
       labels: { style: { colors: "#6B7280", fontSize: "12px" } },
     },
     yaxis: {
@@ -46,8 +53,8 @@ const GasVolumeChart = () => {
   };
 
   const series = [
-    { name: "Приход газа", data: formattedData.map((item:any) => item.receive_total) },
-    { name: "Реализованный газ", data: formattedData.map((item:any) => item.station_total) }
+    { name: "Приход газа", data: formattedData.map((item) => item.receive_total) },
+    { name: "Реализованный газ", data: formattedData.map((item) => item.station_total) },
   ];
 
   return (
