@@ -8,8 +8,8 @@ import GasVolumeChart from "./chart/Diagramma";
 import AllSum from "./map/AllSum";
 import FilterA from "./map/FilterA";
 // import Alpha from "./map/Alpha";
-import { useQuery } from "@tanstack/react-query";
-import uzbService from "../../services/uzb.service";
+// import { useQuery } from "@tanstack/react-query";
+// import uzbService from "../../services/uzb.service";
 import Stations from "./map/Stations";
 
 const { RangePicker } = DatePicker;
