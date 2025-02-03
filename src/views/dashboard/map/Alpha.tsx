@@ -2,9 +2,11 @@ import Cancel from '../../../../public/svg/Cancel';
 import NavigationTabs from "./NavigationBar";
 import logoa from '../../../../public/svg/logoa.svg';
 import { format } from 'date-fns';
+import useStations from '../../../config/hooks/useStation';
 
 const Alpha = () => {
   const today=new Date()
+  const {setAlphaShow}=useStations(data=>data)
   return (
     <div>
       <div className="w-[470px] h-[571px] overflow-y-scroll custom-scrollbar rounded-2xl border absolute top-4 p-4  left-4 z-[550] bg-white">
@@ -19,7 +21,7 @@ const Alpha = () => {
             </div>
         </div>
             </div>
-          <button className="text-[24px] font-semibold my-0 ">
+          <button className="text-[24px] font-semibold my-0 " onClick={()=>setAlphaShow(false)}>
             <Cancel width={20} height={20} strokeColor="#69757A"/>
           </button>
         </div>

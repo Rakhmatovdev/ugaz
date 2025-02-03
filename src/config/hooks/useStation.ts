@@ -1,4 +1,5 @@
 import { create } from "zustand";
+
 interface TransactionData {
     beginning_balance: number;
     write_offs_amount: number;
@@ -21,6 +22,10 @@ interface ContractData {
 interface typeStation {
     transaction_data: TransactionData[];
     contract_data: ContractData;
+    alphaShow: boolean;
+    alphaData:any;
+    setAlphaData:(data:any)=>void;
+    setAlphaShow: (show: boolean) => void;  
     setTransactionData: (data: TransactionData[]) => void;
     setContractData: (data: ContractData) => void;
 }
@@ -38,6 +43,10 @@ const useStations = create<typeStation>((set) => ({
             not_taxed: 0,
         },
     },
+    alphaShow: false,
+    alphaData:[],
+    setAlphaData:(data)=>set(()=>({alphaData:data})),
+    setAlphaShow: (show) => set(() => ({ alphaShow: show })),
     setTransactionData: (data) => set(() => ({ transaction_data: data })),
     setContractData: (data) => set(() => ({ contract_data: data })),
 }));

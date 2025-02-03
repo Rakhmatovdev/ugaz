@@ -16,7 +16,7 @@ interface CheckboxState {
 const useCheckboxStore = create<CheckboxState>((set) => ({
   aghkcCheck: true,
   agzcCheck: false,
-  azcCheck: false,
+  azcCheck: true,
   digitized: true,
   nDigitized: true,
   toggleAghkcCheck: () => set((state) => ({ aghkcCheck: !state.aghkcCheck })),

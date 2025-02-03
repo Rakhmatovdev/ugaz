@@ -10,7 +10,7 @@ import {
 } from "react-leaflet"
 import uzbService from "../../services/uzb.service";
 import MaskLayer from "./MackLayer";
-import { useReverse } from "../../config/hooks/useReverse";
+import { useRegion, useReverse } from '../../config/hooks/useReverse';
 import useStations from "../../config/hooks/useStation";
 
 const ResizeMap = () => {
@@ -24,6 +24,8 @@ const ResizeMap = () => {
 };
 const CustomMap = () => {
   const center: [number, number] = [41.3775, 63.5853];
+
+  const {setAlphaShow,setAlphaData,alphaData}=useStations(data=>data)
 
 
   const {setContractData,setTransactionData,contract_data}=useStations(data=>data)
@@ -43,9 +45,19 @@ const CustomMap = () => {
 })
 
 
+  const {data:branches,mutate:mutatab}=useMutation({
+    mutationKey:['branches'],
+   mutationFn:uzbService.branches,
+})
+console.log("branches",alphaData);
+
+
+
+
 
 useEffect(()=>{
 mutate('')
+
   },[])
 
   useEffect(() => {
@@ -53,7 +65,10 @@ mutate('')
       setContractData(transaction_statistic?.contract_data)
       setTransactionData(transaction_statistic?.transaction_data)
     }
-  }, [transaction_statistic]);
+    if(branches){
+      setAlphaData(branches?.results)
+    }
+  }, [transaction_statistic,branches]);
 
 
   const outputArray = useMemo(() => {
@@ -205,6 +220,9 @@ console.log(contract_data);
         //@ts-ignore
         mutate(feature.properties.region_id)  
       mutateg(feature.id)
+ setAlphaShow(true)
+ mutatab(useRegion(feature.properties.region_id))
+          
           
         
         

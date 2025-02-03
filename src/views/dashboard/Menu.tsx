@@ -11,11 +11,15 @@ import FilterA from "./map/FilterA";
 // import { useQuery } from "@tanstack/react-query";
 // import uzbService from "../../services/uzb.service";
 import Stations from "./map/Stations";
+import useStations from "../../config/hooks/useStation";
+import Alpha from "./map/Alpha";
 
 const { RangePicker } = DatePicker;
 const Menu = () => {
     const today: Dayjs = dayjs();
   const tenDaysAgo: Dayjs = dayjs().subtract(10, 'days');
+
+  const {alphaShow}=useStations(data=>data) 
 
 // const {data:station_detail}=useQuery({
 //     queryKey:['station detail'],
@@ -69,7 +73,7 @@ const Menu = () => {
 
 {/*left */}
 <Stations/>
-{/* <Alpha/> */}
+{alphaShow && <Alpha/>}
 
 
 {/*right */}

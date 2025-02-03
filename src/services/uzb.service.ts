@@ -95,6 +95,17 @@ if(!id) {
     },
 
 
+    branches: async (id:number| string) => {
+        try {
+            const response = await allService.get(points.branches,{params:{region:id}});
+            return response?.data;
+        } catch (error) {
+            console.error("branches failed", error);
+            throw new Error("branches failed. Please check your credentials and try again.");
+        }
+    }
+,
+
 
 
 
