@@ -23,7 +23,11 @@ interface typeStation {
     transaction_data: TransactionData[];
     contract_data: ContractData;
     alphaShow: boolean;
+    alphaOneShow: boolean;
     alphaData:any;
+    alphaDataOne:any;
+    setAlphaOneShow: (show: boolean) => void;
+    setAlphaDataOne:(data:any)=>void;
     setAlphaData:(data:any)=>void;
     setAlphaShow: (show: boolean) => void;  
     setTransactionData: (data: TransactionData[]) => void;
@@ -44,9 +48,13 @@ const useStations = create<typeStation>((set) => ({
         },
     },
     alphaShow: false,
+    alphaOneShow: false,
     alphaData:[],
+    alphaDataOne:{},
+    setAlphaDataOne:(data)=>set(()=>({alphaDataOne:data})),
     setAlphaData:(data)=>set(()=>({alphaData:data})),
     setAlphaShow: (show) => set(() => ({ alphaShow: show })),
+    setAlphaOneShow: (show) => set(() => ({ alphaOneShow: show })),
     setTransactionData: (data) => set(() => ({ transaction_data: data })),
     setContractData: (data) => set(() => ({ contract_data: data })),
 }));

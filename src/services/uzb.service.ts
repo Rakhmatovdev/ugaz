@@ -106,6 +106,15 @@ if(!id) {
     }
 ,
 
+ branchOne: async (id:number| string) => {
+    try {
+        const response = await allService.get(`${points.branches}${id}/`);
+        return response?.data;
+    } catch (error) {
+        console.error("branch one failed", error);
+        throw new Error("branch one  failed. Please check your credentials and try again.");
+    }
+ },
 
 
 
