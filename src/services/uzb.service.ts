@@ -8,8 +8,8 @@ export const uzbService = {
             const response = await apiClient.get(endpoints.geoJson);
             return response;
         } catch (error) {
-            console.error("geoJson failed", error);
-            throw new Error("geoJson failed. Please check your credentials and try again.");
+            console.error("geo Json failed", error);
+            throw new Error("geo Json failed. Please check your credentials and try again.");
         }
     },
 
@@ -117,11 +117,17 @@ if(!id) {
  },
 
 
+  kalonkalar: async (id:number|string) => {
+    try {
+        const response = await allService.get(`${points.kalonkalar[0]}${id}${points.kalonkalar[1]}`);
+        return response?.data;
+    } catch (error) {
+        console.error("kalonkalar failed", error);
+        throw new Error("kalonkalar failed. Please check your credentials and try again.");
+    }
+ },
 
-
-
-
-        contract_statistic_by_region: async () => {
+    contract_statistic_by_region: async () => {
             const gas={date:"2025-01",date_type: "month"}
             try {
                 const response = await allService.get(points.contract_statistic_by_region,{params:gas});
@@ -131,7 +137,6 @@ if(!id) {
                 throw new Error("statistic by region failed. Please check your credentials and try again.");
         }
         },
-
 
 
     station_detail: async () => {

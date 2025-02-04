@@ -2,24 +2,43 @@ import Cancel from '../../../../public/svg/Cancel';
 import logoa from '../../../../public/svg/logoa.svg';
 import logo from '../../../../public/logo.svg';
 import useStations from '../../../config/hooks/useStation';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import uzbService from '../../../services/uzb.service';
-
-
+import { useEffect } from 'react';
 const AlphaList = () => {
-    const {alphaData,setAlphaDataOne,setAlphaOneShow,setAlphaShow} =useStations(data=>data)
+    const {alphaData,setAlphaDataOne,setAlphaOneShow,setAlphaShow,setKalonkaData} =useStations(data=>data)
 
     const {mutate:mutateAplha,data}=useMutation({
       mutationKey:['getAlphaData one'],
       mutationFn: uzbService.branchOne
     })
+    const {data:datak} = useQuery({
+      queryKey: ['Kalonkalar', setAlphaOneShow],
+      queryFn: () => uzbService.kalonkalar(data.id),
+      enabled: !!data?.id,
+      // @ts-ignore
+      onSuccess: (data:any) => console.log(data),
+      // @ts-ignore
+      onError: (error) => console.error("Query failed:", error),
+    });
+    if(datak){
+      useEffect(()=>{
+        setKalonkaData(datak)
+      },[])
+    }
     
+  
 
+
+  
 
     const handleClick=(id:string| number)=>{
         mutateAplha(id) 
-            setAlphaDataOne(data)
-            setAlphaOneShow(true)   
+        if(data){
+             setAlphaDataOne(data)
+            setAlphaOneShow(true)  
+        } 
+        
     }
 
 

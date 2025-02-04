@@ -26,6 +26,8 @@ interface typeStation {
     alphaOneShow: boolean;
     alphaData:any;
     alphaDataOne:any;
+    kalonkaData:any,
+    setKalonkaData:(data:any)=>void;
     setAlphaOneShow: (show: boolean) => void;
     setAlphaDataOne:(data:any)=>void;
     setAlphaData:(data:any)=>void;
@@ -51,6 +53,8 @@ const useStations = create<typeStation>((set) => ({
     alphaOneShow: false,
     alphaData:[],
     alphaDataOne:{},
+    kalonkaData:[],
+    setKalonkaData:(data)=>set(()=>({kalonkaData:data})),
     setAlphaDataOne:(data)=>set(()=>({alphaDataOne:data})),
     setAlphaData:(data)=>set(()=>({alphaData:data})),
     setAlphaShow: (show) => set(() => ({ alphaShow: show })),

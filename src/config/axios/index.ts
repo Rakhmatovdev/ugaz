@@ -30,7 +30,7 @@ export const allService = axios.create({
   timeout: 10000,
   headers:{
     'Content-Type':'application/json',
-    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4NjQzMjI1LCJpYXQiOjE3Mzg1NTY4MjUsImp0aSI6IjNhNTBhY2YwNmE5MDRlZDZiYzUxOGQ0NWMxMzZiYjE3IiwidXNlcl9pZCI6MjMzOX0.Q_OdCB7omBlKHDQ3Rzl3N8eblzc1x3TS5_DCLPvDnP0`,
+    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4NzI5ODI2LCJpYXQiOjE3Mzg2NDM0MjYsImp0aSI6IjVkOTlhOTI2YWFlODQwNGRhMjJkYWU2NzQ5MTdlMmU2IiwidXNlcl9pZCI6MjMzOX0.YD0MsLx93X4mW7A1JkOLrbxsnrPc3UHEoWSkOkJS7HM`,
   },
 })
 
@@ -51,7 +51,7 @@ export const points = {
   transaction_statistic:"billing/statistics/transaction_statistic/", //get
   fuel_dispensers:"admin-statistics/stations/fuel-dispensers/", //get
   branches:"filling_stations/branches/", //get
-
+  kalonkalar:["equipments/branches/","/fuel_dispensers/station_branch_fueldispensers_for_inspectors/"], //get
   contract_statistic_by_region:"billing/statistics/contract_statistic_by_region/", //get
   station_detail:'admin-statistics/stations/map-statistics/station_detail/',  //get
   dispensers_detail:'admin-statistics/stations/fuel-dispensers/dispensers_detail',//get              
