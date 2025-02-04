@@ -25,10 +25,10 @@ const ResizeMap = () => {
 const CustomMap = () => {
   const center: [number, number] = [41.3775, 63.5853];
 
-  const {setAlphaShow,setAlphaData,alphaData}=useStations(data=>data)
+  const {setAlphaShow,setAlphaData}=useStations(data=>data)
 
 
-  const {setContractData,setTransactionData,contract_data}=useStations(data=>data)
+  const {setContractData,setTransactionData}=useStations(data=>data)
   const { data, error } = useQuery({
     queryKey: ["geoJson"],
     queryFn: uzbService.geo_json,
@@ -49,7 +49,6 @@ const CustomMap = () => {
     mutationKey:['branches'],
    mutationFn:uzbService.branches,
 })
-console.log("branches",alphaData);
 
 
 
@@ -143,7 +142,6 @@ mutate('')
 
 
 
-console.log(contract_data);
 
   const onEachFeature = useCallback(
     (feature: any, layer: any) => {
