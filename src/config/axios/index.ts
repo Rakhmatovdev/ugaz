@@ -23,14 +23,14 @@ export const endpoints = {
 
 
 export default apiClient;
-
+const accessToken = localStorage.getItem('accessToken');
 
 export const allService = axios.create({
   baseURL: 'https://api.my-agnks-dev.xdevs.uz/api/v1/',
   timeout: 10000,
   headers:{
     'Content-Type':'application/json',
-    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4NzI5ODI2LCJpYXQiOjE3Mzg2NDM0MjYsImp0aSI6IjVkOTlhOTI2YWFlODQwNGRhMjJkYWU2NzQ5MTdlMmU2IiwidXNlcl9pZCI6MjMzOX0.YD0MsLx93X4mW7A1JkOLrbxsnrPc3UHEoWSkOkJS7HM`,
+    Authorization: `Bearer ${accessToken}`,
   },
 })
 
