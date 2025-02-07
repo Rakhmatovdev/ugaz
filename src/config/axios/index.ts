@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const apiClient = axios.create({
   baseURL: 'https://energoinspector.uz/api/v1/base/web',
   timeout: 10000,
@@ -19,8 +18,6 @@ apiClient.interceptors.request.use(
 export const endpoints = {
   geoJson: '/regions/',  //get
 };
-
-
 
 export default apiClient;
 const accessToken = localStorage.getItem('accessToken');

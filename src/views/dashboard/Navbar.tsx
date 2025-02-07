@@ -27,7 +27,7 @@ const Navbar = () => {
           setShow(false)
           message.success("Succesfully Authorized Acess Token is saved in LocalStorage"); 
         } catch (error) {
-          console.error("Xatolik:", error);        }
+          console.error("Xatolik:", error);}
       };
       
       
@@ -45,7 +45,6 @@ const handleSend= () =>{
                 <div className="flex items-center gap-x-6">
                    <HeadPhone/>
                     <Help/>
-
                     <Select
                         style={{ width: 135 }}
                         className="custom-select"
@@ -59,8 +58,7 @@ const handleSend= () =>{
                         <Option value="ozbek">O'zbekcha</Option>
                         <Option value="english">English</Option>
                     </Select>
-                   <div className={'flex gap-x-2 items-center  relative'} >
-                    
+                   <div className={'flex gap-x-2 items-center  relative'} >           
                     <img src={user} alt={'user'}  className={'rounded-full border-[#3ABAAA] border-2 w-[28px] h-[28px]'} onClick={()=>setShow(rev=>!rev)}/>
                     <ArrowDown  strokeColor="#171429" onClick={()=>setShow(rev=>!rev)} />
                     {Show && <div onClick={handleSend}  className="absolute w-[105px] cursor-pointer text-purple-700 bg-white top-12 z-[777] px-4 py-2 rounded-xl right-1 border">

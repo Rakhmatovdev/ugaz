@@ -31,7 +31,6 @@ import UzbekistanBorders from "../../data/uzbekistan-borders.ts";
     return new (L as any).Mask(latLngs, options);
 };
 
-
 const MaskLayer =  () => {
     const map = useMap();
   
@@ -47,12 +46,10 @@ const MaskLayer =  () => {
 
     useEffect(() => {
         const maskLayer = (L as any).mask(coordsAll).addTo(map);
-
         return () => {
             map.removeLayer(maskLayer);
         };
     }, [coordsAll, map]);
-
     return null;
 };
 

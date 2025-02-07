@@ -13,7 +13,6 @@ interface Link{
     path:string;
     id:number
 }
-
 const Sidebar = () => {
     const myLinks:Link[]=[
         {icon: <HugeiconsMenu/>, path: "/menu",id:1},
@@ -24,7 +23,6 @@ const Sidebar = () => {
         {icon: <HugeiconsProfil/>, path: "#",id:6},
         {icon: <Wrench/>, path: "#",id:7},
     ]
-
     return (
         <div className={'w-16  bg-[#F8FAFB] h-[93.5vh] '}>
           <div className={'flex flex-col pt-5 gap-6 mx-5'}>
