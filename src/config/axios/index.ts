@@ -19,6 +19,8 @@ export const endpoints = {
   geoJson: '/regions/',  //get
 };
 
+const token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5MDEzNDQwLCJpYXQiOjE3Mzg5MjcwNDAsImp0aSI6ImM5OTM5ODZmZGIyNzQ0ZTc5NzVmMWQwYTQwNGUyYjkwIiwidXNlcl9pZCI6MjMzOX0.L0faqHbau6seabi4Jy-uox_BA7UNbWYaBnDvNlJI9RI"
+
 export default apiClient;
 const accessToken = localStorage.getItem('accessToken');
 
@@ -27,8 +29,8 @@ export const allService = axios.create({
   timeout: 10000,
   headers:{
     'Content-Type':'application/json',
-    Authorization: `Bearer ${accessToken}`,
-  },
+    Authorization: `Bearer ${accessToken || token}`,
+  }, 
 })
 
 allService.interceptors.request.use(
