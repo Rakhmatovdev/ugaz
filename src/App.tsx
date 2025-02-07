@@ -9,7 +9,6 @@ function App() {
         <QueryProvider><ReduxProvider><BrowserRouter><Routes>
                         {/*<Route path="/" element={<Home/>}/>*/}
                         <Route path="/" element={<Dashboard/>}><Route path="/menu" element={<Menu/>}/></Route>
-
         </Routes></BrowserRouter></ReduxProvider></QueryProvider>
     )
 }
